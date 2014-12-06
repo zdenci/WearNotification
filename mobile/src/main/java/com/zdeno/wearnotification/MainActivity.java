@@ -37,7 +37,7 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendNotification("Zdeno", "Volajaky text", "/path");
+                sendNotification("Zdeno", "Something stupid", "/path");
             }
         });
     }
@@ -105,8 +105,8 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
     private void sendNotification(final String title, final String text, final String path) {
         if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
             PutDataMapRequest dataMapRequest = PutDataMapRequest.create(path);
-            dataMapRequest.getDataMap().putString("title", "Zdeno");
-            dataMapRequest.getDataMap().putString("msg", "Some stupid message");
+            dataMapRequest.getDataMap().putString("title", title);
+            dataMapRequest.getDataMap().putString("msg", text);
 
             PutDataRequest dataRequest = dataMapRequest.asPutDataRequest();
 
